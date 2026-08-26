@@ -93,7 +93,7 @@ portfolio-website
 ---
 
 ## Contact
-For any inquiries or collaboration opportunities, please reach out to me via [email@example.com](mailto:email@example.com).
+For any inquiries or collaboration opportunities, please reach out to me via [email@example.com](mailto:yeshuarcot2003@gmail.com).
 
 ---
 
