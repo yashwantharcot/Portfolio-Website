@@ -1,194 +1,893 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio Website</title>
-  <link rel="stylesheet" href="src\styles\style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-  <meta name="description" content="Arcot Yashwanth's portfolio showcasing skills, projects, and experience.">
-  <meta name="keywords" content="Portfolio, Arcot Yashwanth, Web Developer, Projects, Resume">
-  <meta name="author" content="Arcot Yashwanth">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arcot Yashwanth — AI Engineer & GenAI Developer | Portfolio</title>
+  <meta name="description" content="Arcot Yashwanth — AI Engineer with 1+ year building production-grade Generative AI applications, RAG systems, and enterprise AI solutions. Available for freelance AI projects." />
+  <meta name="keywords" content="Arcot Yashwanth, AI Engineer, GenAI Engineer, RAG Developer, FastAPI, MongoDB Atlas Vector Search, LLM, OpenAI, Freelance AI Developer, Bangalore" />
+  <meta name="author" content="Arcot Yashwanth" />
+  <meta property="og:title" content="Arcot Yashwanth — AI Engineer Portfolio" />
+  <meta property="og:description" content="AI Engineer · GenAI Developer · Available for freelance AI projects" />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="src/styles/style.css" />
 </head>
 <body>
-  <header>
-    <h1>Arcot Yashwanth</h1>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#certifications">Certifications</a></li>
-        <li><a href="#contact">Contact Me</a></li>
+
+  <!-- SCROLL PROGRESS -->
+  <div id="scroll-progress-bar" aria-hidden="true"></div>
+
+  <!-- CUSTOM CURSOR -->
+  <div id="cursor-dot" aria-hidden="true"></div>
+  <div id="cursor-ring" aria-hidden="true"></div>
+
+  <!-- ═══════════ NAVIGATION ═══════════ -->
+  <header id="navbar">
+    <nav class="nav-container">
+      <a href="#hero" class="nav-logo" id="nav-logo-link">
+        <span class="logo-bracket">&lt;</span>AY<span class="logo-bracket"> /&gt;</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+        <li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
+        <li><a href="#services" class="nav-link" data-section="services">Services</a></li>
+        <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+        <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
       </ul>
+      <a href="resume_2026.pdf" class="nav-cta" download id="nav-resume-btn">
+        <i class="fas fa-download"></i> Resume
+      </a>
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
     </nav>
   </header>
 
-  <section id="intro">
-    <h1>Hi, I'm <span class="dynamic-text">Software Engineer</span></h1>
-    <p class="intro-description">
-      I specialize in building dynamic, user-friendly web applications and solving real-world problems with innovative solutions.
-    </p>
-    <div class="intro-buttons">
-      <a href="#projects" class="btn"><i class="fas fa-folder-open"></i> View My Projects</a>
-      <a href="src\assets\________RESUME.pdf" class="btn btn-secondary" download><i class="fas fa-download"></i> Download Resume</a>
+  <!-- ═══════════ HERO ═══════════ -->
+  <section id="hero">
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+    <div class="hero-split">
+      <!-- Left: Text -->
+      <div class="hero-text-col">
+        <div class="hero-badge">
+          <span class="status-dot"></span>
+          Open to AI opportunities & freelance projects
+        </div>
+
+        <h1 class="hero-name">
+          I'm <span class="gradient-text">Arcot Yashwanth</span>
+        </h1>
+
+        <div class="hero-role-wrapper">
+          <span class="hero-role-prefix">I build </span>
+          <span class="typewriter" id="typewriter-text">Production-Grade AI Systems</span>
+          <span class="typewriter-cursor">|</span>
+        </div>
+
+        <p class="hero-description">
+          <strong>AI Engineer</strong> with 1+ year of experience shipping <strong>RAG pipelines</strong>,
+          <strong>LLM applications</strong>, and <strong>enterprise AI backends</strong> at Dealdox Software, Bangalore.
+          I turn complex AI into production-ready products.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#services" class="btn btn-primary" id="hero-services-btn">
+            <i class="fas fa-bolt"></i> Hire Me
+          </a>
+          <a href="#projects" class="btn btn-glass" id="hero-projects-btn">
+            <i class="fas fa-rocket"></i> View My Work
+          </a>
+        </div>
+
+        <div class="hero-socials">
+          <a href="https://github.com/yashwantharcot" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/yashwanth-arcot-87537426b/" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://leetcode.com/u/ArcotYashwanth/" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="LeetCode"><i class="fas fa-code"></i></a>
+        </div>
+      </div>
+
+      <!-- Right: Terminal -->
+      <div class="hero-terminal-col">
+        <div class="terminal-window" id="hero-terminal">
+          <div class="terminal-header">
+            <div class="terminal-dot red"></div>
+            <div class="terminal-dot yellow"></div>
+            <div class="terminal-dot green"></div>
+            <span class="terminal-title">yashwanth@ai-engineer ~ </span>
+          </div>
+          <div class="terminal-body" id="terminal-body">
+            <div class="term-line"><span class="term-prompt">$</span> <span class="term-cmd">cat about.json</span></div>
+            <div class="term-json">{</div>
+            <div class="term-json">  <span class="term-key">"name"</span>: <span class="term-str">"Arcot Yashwanth"</span>,</div>
+            <div class="term-json">  <span class="term-key">"role"</span>: <span class="term-str">"AI Engineer"</span>,</div>
+            <div class="term-json">  <span class="term-key">"company"</span>: <span class="term-str">"Dealdox Software"</span>,</div>
+            <div class="term-json">  <span class="term-key">"location"</span>: <span class="term-str">"Bangalore, India"</span>,</div>
+            <div class="term-json">  <span class="term-key">"specialization"</span>: [</div>
+            <div class="term-json">    <span class="term-str">"RAG Systems"</span>,</div>
+            <div class="term-json">    <span class="term-str">"LLM Applications"</span>,</div>
+            <div class="term-json">    <span class="term-str">"AI Backend Services"</span>,</div>
+            <div class="term-json">    <span class="term-str">"Voice AI Pipelines"</span></div>
+            <div class="term-json">  ],</div>
+            <div class="term-json">  <span class="term-key">"docs_processed"</span>: <span class="term-num">1000</span>+,</div>
+            <div class="term-json">  <span class="term-key">"ml_records"</span>: <span class="term-num">60000</span>+,</div>
+            <div class="term-json">  <span class="term-key">"available_for_hire"</span>: <span class="term-bool">true</span></div>
+            <div class="term-json">}</div>
+            <div class="term-line"><span class="term-prompt">$</span> <span class="term-cursor-blink">█</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      <span>Scroll</span>
     </div>
   </section>
 
-  <section id="about" data-aos="fade-up">
-    <h2>About Me</h2>
-    <p>I am a passionate and detail-oriented developer with a strong foundation in front-end development and a deep interest in leveraging advanced technologies to create impactful web solutions. My enthusiasm for problem-solving and innovation drives me to tackle complex challenges, as demonstrated in my previous projects, where I utilized Natural Language Processing (NLP) to streamline customer complaint handling and improve operational efficiency.
+  <!-- ═══════════ IMPACT METRICS MARQUEE ═══════════ -->
+  <div class="metrics-strip" aria-label="Key achievements">
+    <div class="metrics-track">
+      <div class="metric-item">
+        <span class="metric-number" data-target="1" data-suffix="+">0</span>
+        <span class="metric-label">Year Production Experience</span>
+      </div>
+      <div class="metric-divider">◆</div>
+      <div class="metric-item">
+        <span class="metric-number" data-target="40" data-suffix="%">0</span>
+        <span class="metric-label">Manual Effort Reduced</span>
+      </div>
+      <div class="metric-divider">◆</div>
+      <div class="metric-item">
+        <span class="metric-number" data-target="1000" data-suffix="+">0</span>
+        <span class="metric-label">Engineering Docs Processed</span>
+      </div>
+      <div class="metric-divider">◆</div>
+      <div class="metric-item">
+        <span class="metric-number" data-target="60" data-suffix="k+">0</span>
+        <span class="metric-label">ML Training Records</span>
+      </div>
+      <div class="metric-divider">◆</div>
+      <div class="metric-item">
+        <span class="metric-number" data-target="5">0</span>
+        <span class="metric-label">Production Projects</span>
+      </div>
+      <div class="metric-divider">◆</div>
+      <div class="metric-item">
+        <span class="metric-number" data-target="35" data-suffix="+">0</span>
+        <span class="metric-label">Technologies Mastered</span>
+      </div>
+    </div>
+  </div>
 
-      I am committed to continuous learning and self-improvement, constantly exploring new tools and technologies to enhance my skill set. My mission is to deliver exceptional user experiences and drive positive change in the digital landscape by building intuitive, secure, and scalable applications. Whether it's designing responsive interfaces, optimizing backend systems, or integrating cutting-edge technologies, I strive to create solutions that make a meaningful impact.
-      
-      Key Highlights
-      Front-End Development: Proficient in building dynamic and responsive user interfaces using modern frameworks like React.js.
-      
-      Problem-Solving: Adept at using analytical skills and technologies like NLP to solve real-world challenges.
-      
-      Continuous Learning: Passionate about staying updated with the latest trends and tools in web development and software engineering.
-      
-      User-Centric Approach: Dedicated to creating seamless and engaging user experiences that align with business goals.</p>
-    
+  <!-- ═══════════ ABOUT ═══════════ -->
+  <section id="about">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-label">01 // Who I Am</span>
+        <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-avatar-col">
+          <div class="avatar-wrapper">
+            <div class="avatar-glow"></div>
+            <div class="avatar-img-container">
+              <img src="src/images/profile-avatar.png" alt="Arcot Yashwanth" class="avatar-img" id="avatar-img" onerror="this.style.display='none'; document.getElementById('avatar-initials').style.display='flex';" />
+              <div class="avatar-initials" id="avatar-initials">AY</div>
+            </div>
+            <div class="avatar-ring"></div>
+          </div>
+
+          <!-- Quick Facts -->
+          <div class="quick-facts">
+            <div class="fact-row">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Bangalore, Karnataka, India</span>
+            </div>
+            <div class="fact-row">
+              <i class="fas fa-building"></i>
+              <span>AI Developer @ Dealdox Software</span>
+            </div>
+            <div class="fact-row">
+              <i class="fas fa-graduation-cap"></i>
+              <span>B.Tech AI & Data Science, NBKRIST</span>
+            </div>
+            <div class="fact-row available">
+              <i class="fas fa-circle"></i>
+              <span>Available for freelance projects</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-text-col">
+          <p class="about-intro">
+            I'm a <strong>GenAI Engineer</strong> who builds AI systems that actually ship to production —
+            not just prototypes, but <strong>scalable, reliable, enterprise-grade AI applications</strong>
+            that solve real business problems.
+          </p>
+          <p class="about-body">
+            At <strong>Dealdox Software</strong>, I architect the entire AI stack — from
+            <strong>RAG pipelines</strong> with MongoDB Atlas Vector Search, to
+            <strong>conversational AI</strong> with memory management, to
+            <strong>multilingual voice AI</strong> using Whisper + XTTS + Gemini,
+            to <strong>document intelligence systems</strong> that process 1,000+ engineering documents
+            and reduced manual effort by <strong>40%</strong>.
+          </p>
+          <p class="about-body">
+            I don't just write code — I <strong>design AI architectures</strong>,
+            <strong>build production APIs</strong>, <strong>optimize embedding pipelines</strong>,
+            and <strong>deploy to cloud</strong>. Whether you're a startup needing an AI MVP or an
+            enterprise needing a RAG system — I can take it from zero to production.
+          </p>
+
+          <div class="about-what-i-do">
+            <h3>What I Do Best</h3>
+            <div class="expertise-grid">
+              <div class="expertise-card">
+                <div class="expertise-icon"><i class="fas fa-brain"></i></div>
+                <h4>RAG Systems</h4>
+                <p>End-to-end retrieval-augmented generation pipelines with vector search, embedding sync, and conversational memory</p>
+              </div>
+              <div class="expertise-card">
+                <div class="expertise-icon"><i class="fas fa-server"></i></div>
+                <h4>AI Backend APIs</h4>
+                <p>Production FastAPI services integrating LLM APIs, retrieval pipelines, and real-time AI workflows</p>
+              </div>
+              <div class="expertise-card">
+                <div class="expertise-icon"><i class="fas fa-microphone-alt"></i></div>
+                <h4>Voice AI</h4>
+                <p>Multilingual speech pipelines — Whisper transcription, Gemini translation, XTTS neural voice synthesis</p>
+              </div>
+              <div class="expertise-card">
+                <div class="expertise-icon"><i class="fas fa-file-alt"></i></div>
+                <h4>Document Intelligence</h4>
+                <p>AI-powered document parsing, CAD PDF extraction, automated indexing at scale (1000+ docs)</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-actions">
+            <a href="resume_2026.pdf" download class="btn btn-primary"><i class="fas fa-download"></i> Download Resume</a>
+            <a href="#contact" class="btn btn-outline"><i class="fas fa-comment-dots"></i> Let's Talk</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section id="skills">
-    <h2>Skills</h2>
-    <h3>Technical Skills</h3>
-    <ul>
-      <li> Programming Languages: Python, JavaScript</li>
-      <li>WebDevelopment: HTML, CSS, JavaScript, MySQL (Backend Integration)</li>
-      <li>Database Management: SQL, MySQL, PostgreSql</li>
-      <li>Data Science & Machine Learning: Pandas, Data Analysis, Web Scraping, Machine Learning Algorithms, Large
-        Dataset Handling & Cleaning</li>
-      <li>API Usage: Working with APIs in Python for content generation</li>
-      <li> Problem-Solving & Algorithms: Data Structures, Algorithmic Thinking, Business Problem Solving</li>
-    </ul>
-    <h3>Non-Technical Skills</h3>
-    <ul>
-      <li>Communication</li>
-      <li>Teamwork</li>
-      <li>Problem-Solving</li>
-      <li>Creativity</li>
-    </ul>
+  <!-- ═══════════ EXPERIENCE ═══════════ -->
+  <section id="experience">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-label">02 // Where I've Worked</span>
+        <h2 class="section-title">Work <span class="gradient-text">Experience</span></h2>
+      </div>
+
+      <div class="experience-timeline">
+        <!-- Dealdox -->
+        <div class="exp-item reveal-item" id="exp-dealdox">
+          <div class="exp-dot-line">
+            <div class="exp-dot active"><i class="fas fa-briefcase"></i></div>
+            <div class="exp-line"></div>
+          </div>
+          <div class="exp-card glass-card">
+            <div class="exp-card-top">
+              <div>
+                <h3 class="exp-role">AI Developer</h3>
+                <p class="exp-company"><i class="fas fa-building"></i> Dealdox Software Pvt Ltd, Bangalore</p>
+              </div>
+              <div class="exp-meta">
+                <span class="exp-date"><i class="fas fa-calendar-alt"></i> May 2025 — Present</span>
+                <span class="exp-type-badge">Full-Time</span>
+              </div>
+            </div>
+
+            <ul class="exp-achievements">
+              <li>
+                <span class="exp-bullet">▸</span>
+                <span><strong>Architected production-grade RAG infrastructure</strong> using FastAPI and MongoDB Atlas Vector Search, enabling low-latency semantic retrieval across enterprise knowledge bases.</span>
+              </li>
+              <li>
+                <span class="exp-bullet">▸</span>
+                <span>Implemented <strong>conversational memory and coreference resolution</strong> pipelines using spaCy + AllenNLP, improving multi-turn contextual understanding in enterprise AI assistants.</span>
+              </li>
+              <li>
+                <span class="exp-bullet">▸</span>
+                <span>Built <strong>real-time embedding synchronization</strong> using MongoDB Change Streams — continuously updated knowledge bases without manual re-indexing.</span>
+              </li>
+              <li>
+                <span class="exp-bullet">▸</span>
+                <span>Developed <strong>multilingual voice AI pipelines</strong> — Whisper (transcription) → Gemini (translation) → XTTS (neural voice synthesis).</span>
+              </li>
+              <li>
+                <span class="exp-bullet">▸</span>
+                <span>Built <strong>AI document intelligence for CAD vector PDFs</strong>, reducing manual processing by <strong class="highlight-stat">40%</strong>.</span>
+              </li>
+              <li>
+                <span class="exp-bullet">▸</span>
+                <span>Automated document parsing processing <strong class="highlight-stat">1,000+ engineering documents</strong> with scalable extraction & indexing pipelines.</span>
+              </li>
+              <li>
+                <span class="exp-bullet">▸</span>
+                <span>Developed ML models on <strong class="highlight-stat">60k+ CPQ records</strong> with regression, classification & <strong>SHAP explainability</strong>.</span>
+              </li>
+            </ul>
+
+            <div class="exp-impact-strip">
+              <div class="exp-impact"><span class="impact-num">40%</span><span>Effort Reduced</span></div>
+              <div class="exp-impact"><span class="impact-num">1000+</span><span>Docs Processed</span></div>
+              <div class="exp-impact"><span class="impact-num">60k+</span><span>ML Records</span></div>
+            </div>
+
+            <div class="exp-tech-tags">
+              <span class="tag">FastAPI</span><span class="tag">RAG</span><span class="tag">MongoDB Atlas Vector Search</span>
+              <span class="tag">OpenAI</span><span class="tag">Gemini</span><span class="tag">spaCy</span>
+              <span class="tag">AllenNLP</span><span class="tag">Whisper</span><span class="tag">XTTS</span>
+              <span class="tag">Docker</span><span class="tag">AWS</span><span class="tag">SHAP</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Radical Innovations -->
+        <div class="exp-item reveal-item" id="exp-radical">
+          <div class="exp-dot-line">
+            <div class="exp-dot"><i class="fas fa-flask"></i></div>
+            <div class="exp-line"></div>
+          </div>
+          <div class="exp-card glass-card">
+            <div class="exp-card-top">
+              <div>
+                <h3 class="exp-role">Machine Learning Intern</h3>
+                <p class="exp-company"><i class="fas fa-building"></i> Radical Innovations Group</p>
+              </div>
+              <div class="exp-meta">
+                <span class="exp-date"><i class="fas fa-calendar-alt"></i> Jan 2025 — Apr 2025</span>
+                <span class="exp-type-badge intern">Internship</span>
+              </div>
+            </div>
+            <ul class="exp-achievements">
+              <li><span class="exp-bullet">▸</span><span>Collected, cleaned, and preprocessed datasets for ML model training and evaluation.</span></li>
+              <li><span class="exp-bullet">▸</span><span>Performed <strong>data visualization and EDA</strong> to uncover patterns and inform feature engineering.</span></li>
+              <li><span class="exp-bullet">▸</span><span>Trained and evaluated <strong>ML prediction models</strong> with hyperparameter tuning for optimal performance.</span></li>
+            </ul>
+            <div class="exp-tech-tags">
+              <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Scikit-learn</span>
+              <span class="tag">Data Visualization</span><span class="tag">EDA</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education inline -->
+        <div class="exp-item reveal-item" id="exp-education">
+          <div class="exp-dot-line">
+            <div class="exp-dot"><i class="fas fa-graduation-cap"></i></div>
+          </div>
+          <div class="exp-card glass-card">
+            <div class="exp-card-top">
+              <div>
+                <h3 class="exp-role">B.Tech in Artificial Intelligence & Data Science</h3>
+                <p class="exp-company"><i class="fas fa-university"></i> NBKR Institute of Science & Technology</p>
+              </div>
+              <div class="exp-meta">
+                <span class="exp-date"><i class="fas fa-calendar-alt"></i> July 2021 — July 2025</span>
+                <span class="exp-type-badge intern">Education</span>
+              </div>
+            </div>
+            <div class="exp-tech-tags">
+              <span class="tag">AI</span><span class="tag">Data Science</span><span class="tag">Machine Learning</span>
+              <span class="tag">NLP</span><span class="tag">Deep Learning</span><span class="tag">Python</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
+  <!-- ═══════════ SERVICES (FREELANCE) ═══════════ -->
+  <section id="services">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-label">03 // What I Can Build For You</span>
+        <h2 class="section-title">My <span class="gradient-text">Services</span></h2>
+        <p class="section-subtitle">
+          Whether you're a startup needing an AI MVP or an enterprise needing production AI infrastructure —
+          I deliver end-to-end solutions.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card glass-card reveal-item">
+          <div class="service-icon-wrap"><i class="fas fa-comments"></i></div>
+          <h3>RAG Chatbots & AI Assistants</h3>
+          <p>Custom AI chatbots that answer questions from your documents — PDF, knowledge base, or any data source. Complete RAG pipeline with vector search.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> PDF / Document ingestion pipeline</li>
+            <li><i class="fas fa-check"></i> Semantic search with vector databases</li>
+            <li><i class="fas fa-check"></i> Conversational memory & context</li>
+            <li><i class="fas fa-check"></i> Deployed API ready for integration</li>
+          </ul>
+          <div class="service-stack">
+            <span>FastAPI</span><span>OpenAI</span><span>MongoDB Atlas</span><span>Pinecone</span>
+          </div>
+        </div>
+
+        <div class="service-card glass-card reveal-item">
+          <div class="service-icon-wrap"><i class="fas fa-cogs"></i></div>
+          <h3>AI Backend & API Development</h3>
+          <p>Production-grade Python backend services that integrate LLM APIs, AI workflows, and intelligent automation into your existing applications.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> FastAPI / Django REST backends</li>
+            <li><i class="fas fa-check"></i> LLM API integration (OpenAI, Gemini)</li>
+            <li><i class="fas fa-check"></i> AI agent workflows & tool calling</li>
+            <li><i class="fas fa-check"></i> Authentication, rate limiting, monitoring</li>
+          </ul>
+          <div class="service-stack">
+            <span>FastAPI</span><span>Django</span><span>Docker</span><span>AWS</span>
+          </div>
+        </div>
+
+        <div class="service-card glass-card reveal-item">
+          <div class="service-icon-wrap"><i class="fas fa-microphone-alt"></i></div>
+          <h3>Voice AI & Multilingual Systems</h3>
+          <p>Speech-to-text, translation, and voice synthesis pipelines for multilingual applications — real-time transcription and natural-sounding output.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Speech transcription (Whisper)</li>
+            <li><i class="fas fa-check"></i> Multi-language translation (Gemini)</li>
+            <li><i class="fas fa-check"></i> Neural voice cloning (XTTS)</li>
+            <li><i class="fas fa-check"></i> Real-time processing pipeline</li>
+          </ul>
+          <div class="service-stack">
+            <span>Whisper</span><span>XTTS</span><span>Gemini</span><span>Python</span>
+          </div>
+        </div>
+
+        <div class="service-card glass-card reveal-item">
+          <div class="service-icon-wrap"><i class="fas fa-file-alt"></i></div>
+          <h3>Document Intelligence & Parsing</h3>
+          <p>AI-powered document processing systems that extract, classify, and index information from PDFs, CAD files, and enterprise documents at scale.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> PDF / CAD document parsing</li>
+            <li><i class="fas fa-check"></i> Automated extraction & indexing</li>
+            <li><i class="fas fa-check"></i> Embedding generation & sync</li>
+            <li><i class="fas fa-check"></i> Scalable batch processing (1000+ docs)</li>
+          </ul>
+          <div class="service-stack">
+            <span>Python</span><span>spaCy</span><span>MongoDB</span><span>AWS S3</span>
+          </div>
+        </div>
+
+        <div class="service-card glass-card reveal-item">
+          <div class="service-icon-wrap"><i class="fas fa-chart-line"></i></div>
+          <h3>ML Model Development</h3>
+          <p>Custom machine learning models for prediction, classification, and analysis — with explainable AI using SHAP for transparent decision-making.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Regression & classification models</li>
+            <li><i class="fas fa-check"></i> Feature engineering & EDA</li>
+            <li><i class="fas fa-check"></i> SHAP explainability reports</li>
+            <li><i class="fas fa-check"></i> Model deployment & monitoring</li>
+          </ul>
+          <div class="service-stack">
+            <span>Scikit-learn</span><span>XGBoost</span><span>PyTorch</span><span>SHAP</span>
+          </div>
+        </div>
+
+        <div class="service-card glass-card reveal-item">
+          <div class="service-icon-wrap"><i class="fas fa-layer-group"></i></div>
+          <h3>Full Stack Web Applications</h3>
+          <p>End-to-end web applications with React frontends, Node.js/Django backends, database design, authentication, and cloud deployment.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> React.js responsive frontends</li>
+            <li><i class="fas fa-check"></i> Node.js / Django / FastAPI backend</li>
+            <li><i class="fas fa-check"></i> Database design (MongoDB, PostgreSQL)</li>
+            <li><i class="fas fa-check"></i> JWT auth, RBAC, deployment</li>
+          </ul>
+          <div class="service-stack">
+            <span>React</span><span>Node.js</span><span>Django</span><span>PostgreSQL</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="services-cta">
+        <div class="cta-card glass-card">
+          <div class="cta-text">
+            <h3>Have a project in mind?</h3>
+            <p>Let's discuss your requirements and I'll provide a free technical consultation on how AI can solve your problem.</p>
+          </div>
+          <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Get Free Consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ HOW I WORK ═══════════ -->
+  <section id="process">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-label">04 // My Process</span>
+        <h2 class="section-title">How I <span class="gradient-text">Work</span></h2>
+      </div>
+
+      <div class="process-steps">
+        <div class="process-step reveal-item">
+          <div class="step-number">01</div>
+          <div class="step-icon"><i class="fas fa-search"></i></div>
+          <h3>Discovery</h3>
+          <p>Understand your business problem, data sources, and technical requirements. Define scope, deliverables, and timeline.</p>
+        </div>
+        <div class="process-connector"><i class="fas fa-arrow-right"></i></div>
+        <div class="process-step reveal-item">
+          <div class="step-number">02</div>
+          <div class="step-icon"><i class="fas fa-drafting-compass"></i></div>
+          <h3>Architecture</h3>
+          <p>Design the system architecture — API design, data pipeline, model selection, vector database schema, cloud infrastructure.</p>
+        </div>
+        <div class="process-connector"><i class="fas fa-arrow-right"></i></div>
+        <div class="process-step reveal-item">
+          <div class="step-number">03</div>
+          <div class="step-icon"><i class="fas fa-code"></i></div>
+          <h3>Development</h3>
+          <p>Build iteratively with regular demos. Clean, documented, testable code. Version control with Git. CI/CD pipelines.</p>
+        </div>
+        <div class="process-connector"><i class="fas fa-arrow-right"></i></div>
+        <div class="process-step reveal-item">
+          <div class="step-number">04</div>
+          <div class="step-icon"><i class="fas fa-rocket"></i></div>
+          <h3>Deploy & Support</h3>
+          <p>Deploy to production with Docker + AWS/Vercel. Documentation, monitoring setup, and ongoing support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ PROJECTS ═══════════ -->
   <section id="projects">
-    <h2>Projects</h2>
-    <div class="project">
-      <img src="src\images\NLP-customer-service-featured-image.webp" alt="Automated Customer Complaint Classification Project">
-      <h3> Automated Customer Complaint Classification using NLP</h3>
-      <p> • Developed an NLP-based ticket classification system for a financial company to automate customer complaint
-        categorization.
-        • Implemented topic modeling using NMF to classify unstructured text data into predefined categories.
-        • Trained supervised models (Logistic Regression, Decision Tree, Random Forest) for efficient complaint
-        resolution.
-        • Applied advanced text preprocessing, feature extraction, and hyperparameter tuning to improve classification
-        accuracy.
-        • Tools Used:Text preprocessing and data cleaning tools, Data lemmatization and POS tagging, Exploratory data analysis (EDA) tools, Topic modeling with NMF, Machine learning models including logistic regression, decision tree, random forest, and multinomial naive
-        bayes, Hyperparameter tuning with GridSearchCV
-       </p>
-      <a href="https://github.com/yashwantharcot/AutomaticTicketClassification">View Project</a>
-    </div>
-    <div class="project">
-      <img src="src\images\download.jpeg" alt="Online Harassment Detection Project">
-      <h3>A Novel Hybrid Method for Detection of Online Harassment</h3>
-      <p> • Built an NLP-based system to classify tweets as offensive or non-offensive.
-        • Used Decision Tree & Naïve Bayes for classification.
-        • Applied text preprocessing, sentiment analysis, and TF-IDF vectorization.
-        • Evaluated model performance using accuracy, precision, and recall.
-        • Tools Used: Languages & Libraries: Python, NLTK, spaCy, Scikit-learn, Pandas, NumPy
-        Machine Learning Models: Decision Tree, Naïve Bayes
-        Feature Extraction: TF-IDF Vectorization
-        NLP Techniques: Tokenization, Stemming, Sentiment Analysis
-        Performance Metrics: Accuracy, Precision, Recall
-        Data Handling: Train-Test Split (70-30)</p>
-      <a href="https://github.com/yashwantharcot/A-Novel-Hybrid-Method-for-Detection-of-Online-Harassment-/tree/main">View Project</a>
-    </div>
-    <div class="project">
-      <img src="src\images\what-is-whm-web-host-manager.jpg" alt="Web Host Manager Project">
-      <h3>Web-Host-Manager</h3>
-      <p>Developed a full-stack web application for managing client data in web hosting companies using Node.js, Express.js, Sequelize, and PostgreSQL.
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-label">05 // What I've Built</span>
+        <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+        <p class="section-subtitle">Production-grade applications with real-world impact — not just demos.</p>
+      </div>
 
-        Designed and implemented a relational database schema to store client information, including domain details, email credentials, and renewal dates.
-        
-        Built RESTful APIs for CRUD operations, user authentication, and third-party integrations.
-        
-        Implemented JWT-based authentication and data encryption to ensure secure access and compliance with industry standards.
-        
-        Currently working on the frontend using React.js to create a responsive and user-friendly interface.</p>
-      <a href="https://github.com/yashwantharcot/Web-Host-Manager">View Project</a>
+      <div class="projects-showcase">
+
+        <!-- Project 1: RAG AI (Featured - Full Width) -->
+        <div class="project-featured glass-card reveal-item" id="proj-rag">
+          <div class="pf-badge"><i class="fas fa-star"></i> Featured Project</div>
+          <div class="pf-grid">
+            <div class="pf-info">
+              <h3 class="pf-title">PDF-based RAG AI Assistant</h3>
+              <p class="pf-desc">
+                End-to-end <strong>Retrieval-Augmented Generation</strong> chatbot — users upload PDFs and ask questions.
+                The system embeds documents, performs semantic search, and generates grounded answers using LLMs.
+              </p>
+
+              <div class="pf-architecture">
+                <h4><i class="fas fa-sitemap"></i> Architecture</h4>
+                <div class="arch-flow">
+                  <span class="arch-node">PDF Upload</span>
+                  <span class="arch-arrow">→</span>
+                  <span class="arch-node">Text Extraction</span>
+                  <span class="arch-arrow">→</span>
+                  <span class="arch-node">OpenAI Embeddings</span>
+                  <span class="arch-arrow">→</span>
+                  <span class="arch-node">MongoDB Atlas Vector Store</span>
+                  <span class="arch-arrow">→</span>
+                  <span class="arch-node">Semantic Retrieval</span>
+                  <span class="arch-arrow">→</span>
+                  <span class="arch-node highlight">LLM Response Generation</span>
+                </div>
+              </div>
+
+              <ul class="pf-highlights">
+                <li>Complete RAG pipeline: ingestion → embedding → vector storage → retrieval → generation</li>
+                <li>REST APIs for document management, search, and conversational AI</li>
+                <li>Deployed on Railway with production-ready error handling and rate limiting</li>
+              </ul>
+
+              <div class="pf-tags">
+                <span class="tag">FastAPI</span><span class="tag">MongoDB Atlas Vector Search</span>
+                <span class="tag">OpenAI Embeddings</span><span class="tag">RAG</span><span class="tag">Railway</span>
+              </div>
+
+              <div class="pf-links">
+                <a href="https://retrival-augmented-generation-ai-ag.vercel.app/" target="_blank" class="btn btn-primary btn-sm"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                <a href="https://github.com/yashwantharcot" target="_blank" class="btn btn-outline btn-sm"><i class="fab fa-github"></i> Source Code</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Web Host Manager (Featured) -->
+        <div class="project-featured glass-card reveal-item" id="proj-whm">
+          <div class="pf-badge"><i class="fas fa-star"></i> Featured Project</div>
+          <div class="pf-grid">
+            <div class="pf-info">
+              <h3 class="pf-title">Web Host Manager Dashboard</h3>
+              <p class="pf-desc">
+                Full-stack hosting management platform with <strong>role-based access control</strong>,
+                responsive dashboards, and secure APIs for managing client domains, emails, and renewal schedules.
+              </p>
+
+              <div class="pf-architecture">
+                <h4><i class="fas fa-sitemap"></i> Architecture</h4>
+                <div class="arch-flow">
+                  <span class="arch-node">React Frontend</span>
+                  <span class="arch-arrow">→</span>
+                  <span class="arch-node">REST API Layer</span>
+                  <span class="arch-arrow">→</span>
+                  <span class="arch-node">Node.js / Django Backend</span>
+                  <span class="arch-arrow">→</span>
+                  <span class="arch-node">MongoDB Database</span>
+                  <span class="arch-arrow">→</span>
+                  <span class="arch-node highlight">JWT Auth + RBAC</span>
+                </div>
+              </div>
+
+              <ul class="pf-highlights">
+                <li>Scalable REST APIs with RBAC, JWT authentication, and data encryption</li>
+                <li>Responsive React dashboard with real-time data updates</li>
+                <li>Production deployment on Vercel with CI/CD pipeline</li>
+              </ul>
+
+              <div class="pf-tags">
+                <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Django</span>
+                <span class="tag">MongoDB</span><span class="tag">JWT</span><span class="tag">RBAC</span>
+              </div>
+
+              <div class="pf-links">
+                <a href="https://web-host-manager-git-staging-yashwantharcots-projects.vercel.app/" target="_blank" class="btn btn-primary btn-sm"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                <a href="https://github.com/yashwantharcot/Web-Host-Manager" target="_blank" class="btn btn-outline btn-sm"><i class="fab fa-github"></i> Source Code</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Smaller project cards -->
+        <div class="projects-grid-small">
+          <article class="project-card-sm glass-card reveal-item">
+            <div class="pcs-header">
+              <i class="fas fa-microphone-alt"></i>
+              <a href="https://github.com/yashwantharcot" target="_blank" class="project-link-icon"><i class="fab fa-github"></i></a>
+            </div>
+            <h3>Multilingual AI Voice Translator</h3>
+            <p>Speech-to-text → translation → neural voice synthesis pipeline for real-time cross-language voice communication.</p>
+            <div class="pf-tags"><span class="tag">Whisper</span><span class="tag">XTTS</span><span class="tag">Gemini</span><span class="tag">Python</span></div>
+          </article>
+
+          <article class="project-card-sm glass-card reveal-item">
+            <div class="pcs-header">
+              <i class="fas fa-tags"></i>
+              <a href="https://github.com/yashwantharcot/AutomaticTicketClassification" target="_blank" class="project-link-icon"><i class="fab fa-github"></i></a>
+            </div>
+            <h3>NLP Ticket Classification</h3>
+            <p>NLP-based ticket classifier for financial companies — NMF topic modeling with Logistic Regression, Decision Tree & Random Forest.</p>
+            <div class="pf-tags"><span class="tag">NLP</span><span class="tag">Scikit-learn</span><span class="tag">NMF</span><span class="tag">TF-IDF</span></div>
+          </article>
+
+          <article class="project-card-sm glass-card reveal-item">
+            <div class="pcs-header">
+              <i class="fas fa-shield-alt"></i>
+              <a href="https://github.com/yashwantharcot/A-Novel-Hybrid-Method-for-Detection-of-Online-Harassment-/tree/main" target="_blank" class="project-link-icon"><i class="fab fa-github"></i></a>
+            </div>
+            <h3>Online Harassment Detection</h3>
+            <p>Hybrid NLP system classifying tweets as offensive/non-offensive using Decision Tree + Naïve Bayes with sentiment analysis.</p>
+            <div class="pf-tags"><span class="tag">NLTK</span><span class="tag">spaCy</span><span class="tag">Naïve Bayes</span><span class="tag">Sentiment</span></div>
+          </article>
+        </div>
+
+        <div class="projects-footer">
+          <a href="https://github.com/yashwantharcot" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> View All on GitHub</a>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- ═══════════ TECH STACK ═══════════ -->
+  <section id="skills">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-label">06 // My Arsenal</span>
+        <h2 class="section-title">Tech <span class="gradient-text">Stack</span></h2>
+        <p class="section-subtitle">35+ technologies I use in production daily.</p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-category glass-card">
+          <div class="skill-cat-header"><i class="fas fa-robot"></i><h3>Generative AI</h3></div>
+          <div class="skill-bars">
+            <div class="skill-item"><div class="skill-info"><span>RAG Systems</span><span class="skill-pct">92%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="92" style="--skill-color:#7c3aed;"></div></div></div>
+            <div class="skill-item"><div class="skill-info"><span>Prompt Engineering</span><span class="skill-pct">88%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="88" style="--skill-color:#9d5cf0;"></div></div></div>
+            <div class="skill-item"><div class="skill-info"><span>AI Agents / Tool Calling</span><span class="skill-pct">85%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="85" style="--skill-color:#a78bfa;"></div></div></div>
+            <div class="skill-item"><div class="skill-info"><span>LLMOps / Memory</span><span class="skill-pct">82%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="82" style="--skill-color:#c4b5fd;"></div></div></div>
+          </div>
+        </div>
+        <div class="skill-category glass-card">
+          <div class="skill-cat-header"><i class="fas fa-brain"></i><h3>LLMs & NLP</h3></div>
+          <div class="skill-bars">
+            <div class="skill-item"><div class="skill-info"><span>OpenAI / GPT APIs</span><span class="skill-pct">90%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="90" style="--skill-color:#10a37f;"></div></div></div>
+            <div class="skill-item"><div class="skill-info"><span>Google Gemini</span><span class="skill-pct">85%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="85" style="--skill-color:#4285f4;"></div></div></div>
+            <div class="skill-item"><div class="skill-info"><span>spaCy / AllenNLP</span><span class="skill-pct">80%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="80" style="--skill-color:#09a3d5;"></div></div></div>
+            <div class="skill-item"><div class="skill-info"><span>Whisper / XTTS</span><span class="skill-pct">78%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="78" style="--skill-color:#06b6d4;"></div></div></div>
+          </div>
+        </div>
+        <div class="skill-category glass-card">
+          <div class="skill-cat-header"><i class="fas fa-server"></i><h3>Backend & APIs</h3></div>
+          <div class="skill-bars">
+            <div class="skill-item"><div class="skill-info"><span>Python</span><span class="skill-pct">92%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="92" style="--skill-color:#3776ab;"></div></div></div>
+            <div class="skill-item"><div class="skill-info"><span>FastAPI</span><span class="skill-pct">90%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="90" style="--skill-color:#009688;"></div></div></div>
+            <div class="skill-item"><div class="skill-info"><span>Django / Flask</span><span class="skill-pct">80%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="80" style="--skill-color:#092e20;"></div></div></div>
+            <div class="skill-item"><div class="skill-info"><span>REST APIs / WebSockets</span><span class="skill-pct">88%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="88" style="--skill-color:#f59e0b;"></div></div></div>
+          </div>
+        </div>
+        <div class="skill-category glass-card">
+          <div class="skill-cat-header"><i class="fas fa-database"></i><h3>Databases & Vector Search</h3></div>
+          <div class="skill-bars">
+            <div class="skill-item"><div class="skill-info"><span>MongoDB Atlas Vector Search</span><span class="skill-pct">90%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="90" style="--skill-color:#00ed64;"></div></div></div>
+            <div class="skill-item"><div class="skill-info"><span>PostgreSQL / MySQL</span><span class="skill-pct">82%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="82" style="--skill-color:#336791;"></div></div></div>
+            <div class="skill-item"><div class="skill-info"><span>FAISS / Pinecone</span><span class="skill-pct">78%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="78" style="--skill-color:#06b6d4;"></div></div></div>
+          </div>
+        </div>
+        <div class="skill-category glass-card">
+          <div class="skill-cat-header"><i class="fas fa-chart-line"></i><h3>Machine Learning</h3></div>
+          <div class="skill-bars">
+            <div class="skill-item"><div class="skill-info"><span>Scikit-learn / XGBoost</span><span class="skill-pct">85%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="85" style="--skill-color:#f89939;"></div></div></div>
+            <div class="skill-item"><div class="skill-info"><span>PyTorch / TensorFlow</span><span class="skill-pct">75%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="75" style="--skill-color:#ee4c2c;"></div></div></div>
+            <div class="skill-item"><div class="skill-info"><span>SHAP Explainability</span><span class="skill-pct">78%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="78" style="--skill-color:#9b59b6;"></div></div></div>
+          </div>
+        </div>
+        <div class="skill-category glass-card">
+          <div class="skill-cat-header"><i class="fas fa-cloud"></i><h3>Cloud & DevOps</h3></div>
+          <div class="skill-bars">
+            <div class="skill-item"><div class="skill-info"><span>Docker</span><span class="skill-pct">82%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="82" style="--skill-color:#2496ed;"></div></div></div>
+            <div class="skill-item"><div class="skill-info"><span>AWS (S3, Bedrock, SageMaker)</span><span class="skill-pct">78%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="78" style="--skill-color:#ff9900;"></div></div></div>
+            <div class="skill-item"><div class="skill-info"><span>GitHub Actions / CI-CD</span><span class="skill-pct">80%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="80" style="--skill-color:#2088ff;"></div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tech-pills">
+        <span class="tech-pill">Python</span><span class="tech-pill">JavaScript</span><span class="tech-pill">SQL</span><span class="tech-pill">Bash</span>
+        <span class="tech-pill">FastAPI</span><span class="tech-pill">Django</span><span class="tech-pill">Flask</span><span class="tech-pill">React.js</span>
+        <span class="tech-pill">Node.js</span><span class="tech-pill">RAG</span><span class="tech-pill">OpenAI</span><span class="tech-pill">Gemini</span>
+        <span class="tech-pill">LangChain</span><span class="tech-pill">Whisper</span><span class="tech-pill">XTTS</span><span class="tech-pill">spaCy</span>
+        <span class="tech-pill">AllenNLP</span><span class="tech-pill">PyTorch</span><span class="tech-pill">TensorFlow</span><span class="tech-pill">Scikit-learn</span>
+        <span class="tech-pill">XGBoost</span><span class="tech-pill">SHAP</span><span class="tech-pill">MongoDB Atlas</span><span class="tech-pill">PostgreSQL</span>
+        <span class="tech-pill">FAISS</span><span class="tech-pill">Pinecone</span><span class="tech-pill">Docker</span><span class="tech-pill">AWS S3</span>
+        <span class="tech-pill">AWS Bedrock</span><span class="tech-pill">AWS SageMaker</span><span class="tech-pill">GitHub Actions</span><span class="tech-pill">n8n</span>
+        <span class="tech-pill">REST APIs</span><span class="tech-pill">WebSockets</span><span class="tech-pill">JWT Auth</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CERTIFICATIONS ═══════════ -->
   <section id="certifications">
-    <h2>Certifications</h2>
-    <div class="certifications-container">
-      <div class="certification" data-aos="fade-up">
-        <h3>CAD0321EN: Full Stack Application Development Project</h3>
-        <p>Issued by EDX | Completed: April 2024</p>
-        <a href="https://courses.edx.org/certificates/07566f3269a9458183917b7ca6a26dc2?_gl=1*7dbfe6*_gcl_au*MjY5MTA2OTEwLjE3NDI1MzQ0NTk.*_ga*MTU0MTI2NzExLjE3NDI1MzQ0NTc.*_ga_D3KS4KMDT0*MTc0MjUzNDQ1Ny4xLjEuMTc0MjUzNDc0MC41LjAuMA..">View Certificate</a>
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-label">07 // Credentials</span>
+        <h2 class="section-title">Certifi<span class="gradient-text">cations</span></h2>
       </div>
-      <div class="certification" data-aos="fade-up">
-        <h3>Data	Analytics	and	Visualization	Job
-          Simulation</h3>
-        <p>Issued by Forage | Completed: June 2024</p>
-        <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Accenture%20North%20America/hzmoNKtzvAzXsEqx8_Accenture%20North%20America_DsebALbijTJmcmb5a_1719407986690_completion_certificate.pdf">View Certificate</a>
-      </div>
-      <div class="certification" data-aos="fade-up">
-        <h3>Job Ready Employability Skills</h3>
-        <p>Issued by Wadhwani Foundation | Completed: June 2024</p>
-        <a href="https://web.certificate.wfglobal.org/en/certificate?certificateId=666dad96a6df4036c043fe76">View Certificate</a>
+      <div class="cert-timeline">
+        <div class="cert-item reveal-item">
+          <div class="cert-dot"><i class="fas fa-award"></i></div>
+          <div class="cert-card glass-card">
+            <div class="cert-card-top">
+              <div class="cert-issuer-badge"><i class="fas fa-graduation-cap"></i><span>EDX</span></div>
+              <span class="cert-date">April 2024</span>
+            </div>
+            <h3 class="cert-title">Full Stack Application Development Project</h3>
+            <p class="cert-code">CAD0321EN — Verified Certificate</p>
+            <a href="https://courses.edx.org/certificates/07566f3269a9458183917b7ca6a26dc2?_gl=1*7dbfe6*_gcl_au*MjY5MTA2OTEwLjE3NDI1MzQ0NTk.*_ga*MTU0MTI2NzExLjE3NDI1MzQ0NTc.*_ga_D3KS4KMDT0*MTc0MjUzNDQ1Ny4xLjEuMTc0MjUzNDc0MC41LjAuMA.." target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i> View Certificate</a>
+          </div>
+        </div>
+        <div class="cert-item reveal-item">
+          <div class="cert-dot"><i class="fas fa-chart-bar"></i></div>
+          <div class="cert-card glass-card">
+            <div class="cert-card-top">
+              <div class="cert-issuer-badge"><i class="fas fa-building"></i><span>Forage · Accenture</span></div>
+              <span class="cert-date">June 2024</span>
+            </div>
+            <h3 class="cert-title">Data Analytics & Visualization Job Simulation</h3>
+            <p class="cert-code">Accenture North America Virtual Experience</p>
+            <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Accenture%20North%20America/hzmoNKtzvAzXsEqx8_Accenture%20North%20America_DsebALbijTJmcmb5a_1719407986690_completion_certificate.pdf" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i> View Certificate</a>
+          </div>
+        </div>
+        <div class="cert-item reveal-item">
+          <div class="cert-dot"><i class="fas fa-briefcase"></i></div>
+          <div class="cert-card glass-card">
+            <div class="cert-card-top">
+              <div class="cert-issuer-badge"><i class="fas fa-users"></i><span>Wadhwani Foundation</span></div>
+              <span class="cert-date">June 2024</span>
+            </div>
+            <h3 class="cert-title">Job Ready Employability Skills</h3>
+            <p class="cert-code">Professional Development Program</p>
+            <a href="https://web.certificate.wfglobal.org/en/certificate?certificateId=666dad96a6df4036c043fe76" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i> View Certificate</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- ═══════════ CONTACT ═══════════ -->
   <section id="contact">
-    <h2>Contact Me</h2>
-    <p>If you have any questions or would like to work together, feel free to reach out!</p>
-    <div class="contact-container">
-      <form id="contact-form">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-      <div class="contact-info">
-        <div class="info-item">
-          <i class="fas fa-map-marker-alt"></i>
-          <p>Nellore, Andhra Pradesh, India</p>
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-label">08 // Let's Connect</span>
+        <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
+        <p class="section-subtitle">
+          Looking for an AI engineer? Need a freelance developer for your next AI project?
+          Let's make it happen.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info-col">
+          <div class="contact-info-card glass-card">
+            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+            <div><h3>Email</h3><a href="mailto:yeshuarcot2003@gmail.com">yeshuarcot2003@gmail.com</a></div>
+          </div>
+          <div class="contact-info-card glass-card">
+            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+            <div><h3>Phone</h3><a href="tel:+917981887997">+91 7981887997</a></div>
+          </div>
+          <div class="contact-info-card glass-card">
+            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div><h3>Location</h3><span>BTM Layout, Bangalore, India</span></div>
+          </div>
+          <div class="contact-info-card glass-card">
+            <div class="contact-icon avail"><i class="fas fa-clock"></i></div>
+            <div><h3>Availability</h3><span>Open to full-time & freelance projects</span></div>
+          </div>
+          <div class="contact-socials">
+            <a href="https://github.com/yashwantharcot" target="_blank" class="contact-social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/yashwanth-arcot-87537426b/" target="_blank" class="contact-social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://leetcode.com/u/ArcotYashwanth/" target="_blank" class="contact-social-link" aria-label="LeetCode"><i class="fas fa-code"></i></a>
+            <a href="https://www.instagram.com/arcot__yashwanth__/?hl=en" target="_blank" class="contact-social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
         </div>
-        <div class="info-item">
-          <i class="fas fa-envelope"></i>
-          <p>yeshuarcot2003@gmail.com</p>
-        </div>
-        <div class="info-item">
-          <i class="fas fa-phone"></i>
-          <p>+91 7981887997</p>
+
+        <div class="contact-form-col">
+          <form id="contact-form" class="glass-card" novalidate>
+            <div class="form-group"><label for="form-name">Your Name</label><input type="text" id="form-name" name="name" placeholder="John Doe" required /></div>
+            <div class="form-group"><label for="form-email">Email</label><input type="email" id="form-email" name="email" placeholder="john@example.com" required /></div>
+            <div class="form-group"><label for="form-subject">Subject</label><input type="text" id="form-subject" name="subject" placeholder="AI Project / Job Opportunity / Freelance Work" /></div>
+            <div class="form-group"><label for="form-message">Message</label><textarea id="form-message" name="message" placeholder="Tell me about your AI project or opportunity..." required rows="5"></textarea></div>
+            <button type="submit" class="btn btn-primary btn-full" id="contact-submit-btn"><i class="fas fa-paper-plane"></i><span>Send Message</span></button>
+          </form>
         </div>
       </div>
     </div>
   </section>
 
-  <footer>
-    <p>&copy; 2025 Arcot Yashwanth. All rights reserved.</p>
-    <div class="social-links">
-      <a href="https://github.com/yashwantharcot" target="_blank" rel="noopener noreferrer" title="Visit my GitHub profile">GitHub</a>
-      <a href="https://www.linkedin.com/in/yashwanth-arcot-87537426b/" target="_blank" rel="noopener noreferrer" title="Visit my LinkedIn profile">LinkedIn</a>
-      <a href="https://leetcode.com/u/ArcotYashwanth/" target="_blank" rel="noopener noreferrer">Leetcode</a>
-      <a href="https://www.facebook.com/yeshwanth.arcot.7" target="_blank" rel="noopener noreferrer">Facebook</a>
-      <a href="https://www.instagram.com/arcot__yashwanth__/?hl=en" target="_blank" rel="noopener noreferrer">Instagram</a>
-      <a href="https://www.naukri.com/mnjuser/homepage" target="_blank" rel="noopener noreferrer">Naukri</a>
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer id="footer">
+    <div class="footer-container">
+      <div class="footer-logo"><span class="logo-bracket">&lt;</span>AY<span class="logo-bracket"> /&gt;</span></div>
+      <p class="footer-tagline">Building production-grade AI systems that solve real business problems.</p>
+      <div class="footer-links">
+        <a href="#about">About</a><a href="#experience">Experience</a><a href="#services">Services</a>
+        <a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+      </div>
+      <div class="footer-socials">
+        <a href="https://github.com/yashwantharcot" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/yashwanth-arcot-87537426b/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://leetcode.com/u/ArcotYashwanth/" target="_blank" aria-label="LeetCode"><i class="fas fa-code"></i></a>
+        <a href="https://www.instagram.com/arcot__yashwanth__/?hl=en" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+      <p class="footer-copy">© 2026 Arcot Yashwanth. Crafted with ❤️ in Bangalore, India.</p>
     </div>
   </footer>
 
-  <button id="dark-mode-toggle" aria-label="Toggle dark mode">Toggle Dark Mode</button>
+  <div id="toast" class="toast" role="alert"></div>
+  <button id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 
-  <script src="src\scripts\main.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
+  <script src="src/scripts/main.js"></script>
 </body>
 </html>
